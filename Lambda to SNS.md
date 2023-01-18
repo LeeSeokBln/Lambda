@@ -25,9 +25,9 @@ def lambda_handler(event, context):
         print("Bucket key name is {}".format(s3_key))
         from_path = "s3://{}/{}".format(s3_bucket, s3_key)
         print("from path {}".format(from_path))
-        message = "The file is uploaded at S3 bucket path {}".format(from_path)
-        subject = "Processes completion Notification"
-        SNSResult = send_sns(message, subject) 		# 보낼 메세지
+        message = "The file is uploaded at S3 bucket path {}".format(from_path) # 보낼 메세지
+        subject = "Processes completion Notification"  # 메일 제목
+        SNSResult = send_sns(message, subject)
         if SNSResult :
             print("Notification Sent..") 
             return SNSResult
